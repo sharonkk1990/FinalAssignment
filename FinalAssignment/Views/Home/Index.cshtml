@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">My Favorite Song Animation</h1>
+
+    <!-- a. Embedded YouTube Music Video -->
+    <div style="margin: 20px 0;">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/g_35P85l3kw?si=Fl_DHxWzEutVmTMb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <!-- b. Customized element with CSS -->
+    <div id="animate-box" style="width: 100px; height: 100px; background-color: #3498db; margin: 30px auto; position: relative; border-radius: 10px;"></div>
+</div>
+
+<!-- c. JavaScript animation -->
+<script>
+    const box = document.getElementById('animate-box');
+    let position = 0;
+    let direction = 1;
+
+    function animateBox() {
+        position += 2 * direction;
+        box.style.left = position + 'px';
+
+        if (position > 200 || position < -200) {
+            direction *= -1; // Reverse direction
+        }
+        requestAnimationFrame(animateBox);
+    }
+
+    requestAnimationFrame(animateBox);
+</script>
+
